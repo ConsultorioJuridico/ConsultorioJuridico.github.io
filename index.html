@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultorio Jurídico "Carlos Enrique Marín Vélez"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a3e72;
+            --secondary-color: #2a5a9c;
+            --accent-color: #e74c3c;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        header * {
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-container {
+            margin: 20px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .logo {
+            max-width: 250px;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        h2:hover::after {
+            width: 100%;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            color: var(--secondary-color);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .service-section {
+            background-color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .service-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-list {
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        .service-list li {
+            margin-bottom: 15px;
+            position: relative;
+            list-style-type: none;
+            padding-left: 30px;
+        }
+
+        .service-list li::before {
+            content: '\f054'; /* Font Awesome right arrow */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .service-list ul {
+            margin-left: 20px;
+            padding-left: 20px;
+            margin-top: 10px; /* Added margin for nested lists */
+        }
+
+        .service-list ul li::before {
+            content: '\f0da'; /* Font Awesome chevron right */
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .contact-info * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .image-container:hover img {
+            transform: scale(1.02);
+        }
+
+        .image-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 30%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .image-container:hover::after {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            background-color: #c0392b;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        footer * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-icons {
+            margin: 20px 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .tab-container {
+            margin: 40px 0;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            transition: var(--transition);
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 0 5px 5px;
+            box-shadow: var(--shadow);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .map-container {
+            height: 400px;
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                border-radius: 5px;
+                margin-bottom: 5px;
+                width: 100%;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+         <h1 style="color: white;">Consultorio Jurídico "Carlos Enrique Marín Vélez"</h1>
+        <p>Servicio social gratuito de la Fundación Universitaria del Área Andina</p>
+    </header>
+
+    <div class="logo-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Logo_de_Areandina.svg/2560px-Logo_de_Areandina.svg.png" alt="Logo Universidad" class="logo">
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Imagen de justicia">
+        </div>
+
+        <p>Oferta sus servicios de asesoría jurídica y representación jurídica, servicio social gratuito, en las siguientes áreas del derecho: familia, civil, comercial, penal, laboral, administrativo y policivo. Tenemos atención a público de lunes a viernes en la Avenida Caracas No. 69-44 de lunes a viernes de 8:00 am 12 pm y de 2:00 pm a 6:00 pm.</p>
+
+        <div class="btn-container">
+            <a href="https://areandinabogota.gestionjuridica.com/au/public/cjv" class="btn" target="_blank">
+                <i class="fas fa-laptop"></i> Consultorio Virtual
+            </a>
+            <a href="#contacto" class="btn">
+                <i class="fas fa-map-marker-alt"></i> Visítanos
+            </a>
+        </div>
+
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" onclick="openTab(event, 'penal')">Derecho Penal</button>
+                <button class="tab" onclick="openTab(event, 'publico')">Derecho Público</button>
+                <button class="tab" onclick="openTab(event, 'laboral')">Derecho Laboral</button>
+            </div>
+
+            <div id="penal" class="tab-content active">
+                <div class="service-card">
+                    <h3>Competencia Derecho Penal</h3>
+                    <p>Para el ejercicio de la representación de terceros determinados como personas beneficiadas del servicio en los términos de esta ley, los estudiantes, bajo la supervisión, la guía y el control del Consultorio Jurídico, podrán actuar en los casos establecidos siempre y cuando la cuantía no supere los 50 salarios mínimos Legales mensuales vigentes (smlmv).</p>
+
+                    <h4><i class="fas fa-gavel"></i> Experiencia Específica</h4>
+                    <p>En materia penal, se cuenta con experiencia en los procesos de conocimiento adelantados por jueces penales municipales o promiscuos municipales, en casos como:</p>
+                    <ul class="service-list">
+                        <li><strong>Delitos de lesiones personales:</strong> Sin secuelas que generen incapacidad laboral o enfermedad superior a sesenta (60) días, lesiones con deformidad física transitoria, y aquellas que causan perturbación funcional.</li>
+                        <li><strong>Delitos contra la integridad personal:</strong> Injuria, calumnia, injuria por vía de hecho, injurias recíprocas, y calumnia indirecta.</li>
+                        <li><strong>Maltrato:</strong> Mediante restricción a la libertad física.</li>
+                        <li><strong>Delitos contra el patrimonio económico:</strong>
+                            <ul>
+                                <li>Hurto</li>
+                                <li>Hurto agravado</li>
+                                <li>Estafa</li>
+                                <li>Abuso de confianza</li>
+                                <li>Usurpación de inmuebles</li>
+                                <li>Usurpación de aguas</li>
+                                <li>Invasión de tierras</li>
+                                <li>Perturbación de la posesión sobre bien inmueble</li>
+                                <li>Daño en bien ajeno</li>
+                            </ul>
+                        </li>
+                        <li><strong>Delitos de violencia intrafamiliar.</strong></li>
+                        <li><strong>Delitos por inasistencia alimentaria.</strong></li>
+                        <li><strong>Delitos informáticos.</strong></li>
+                        <li><strong>Delitos querellables en general.</strong></li>
+                    </ul>
+                    <p>Además, se ha actuado como representante de víctimas en el marco del sistema penal acusatorio (Ley 906 de 2004), así como representante de parte civil bajo el sistema penal mixto (Ley 600 de 2000).</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Imagen de derecho penal">
+                </div>
+            </div>
+
+            <div id="publico" class="tab-content">
+                <h2>COMPETENCIAS DE CONSULTORIO JURIDICO EN DERECHO PÚBLICO</h2>
+                <p>Según la Ley 2113 de 2021, los consultorios jurídicos pueden intervenir en una variedad de casos en materia de derecho público. A continuación, se especifican los tipos de casos por materia en los que los consultorios jurídicos pueden actuar:</p>
+
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3><i class="fas fa-balance-scale"></i> Derecho Constitucional</h3>
+                        <ul class="service-list">
+                            <li><strong>Acciones de Tutela:</strong> Intervienen en la defensa de derechos fundamentales vulnerados por autoridades o particulares.</li>
+                            <li><strong>Acciones de Inconstitucionalidad:</strong> Pueden apoyar en la presentación de demandas de inconstitucionalidad contra leyes que se consideren contrarias a la Constitución.</li>
+                            <li><strong>Acciones Populares y de Grupo:</strong> Participan en la protección de derechos e intereses colectivos como el medio ambiente, el patrimonio cultural, y la moralidad administrativa.</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3><i class="fas fa-landmark"></i> Derecho Administrativo</h3>
+                        <ul class="service-list">
+                            <li><strong>Procesos Contencioso-Administrativos:</strong> Pueden representar a ciudadanos en acciones como:
+                                <ul>
+                                    <li>Nulidad y Restablecimiento del Derecho</li>
+                                    <li>Acción de Nulidad Simple</li>
+                                    <li>Acción de Reparación Directa</li>
+                                </ul>
+                            </li>
+                            <li><strong>Recursos Administrativos:</strong> Asisten en la presentación de recursos como apelación, reposición, o queja contra decisiones administrativas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3><i class="fas fa-gavel"></i> Derecho Disciplinario</h3>
+                        <ul class="service-list">
+                            <li><strong>Procesos Disciplinarios:</strong> Pueden asesorar y representar a servidores públicos en procesos disciplinarios.</li>
+                            <li><strong>Recursos:</strong> Asistencia en la interposición de recursos contra decisiones disciplinarias.</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3><i class="fas fa-file-contract"></i> Derecho Contractual Estatal</h3>
+                        <ul class="service-list">
+                            <li><strong>Procesos de Contratación:</strong> Asesoría en procesos de selección y contratación estatal.</li>
+                            <li><strong>Reclamaciones:</strong> Representación en reclamaciones derivadas de contratos estatales.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="laboral" class="tab-content">
+                <div class="service-card">
+                    <h2>Competencia en derecho Laboral</h2>
+                    <p>Ofrece asesoría y acompañamiento legal gratuito en materia de derecho laboral y seguridad social. Nuestros servicios son prestados por estudiantes de derecho bajo la supervisión de Asesores Docentes y abogados con amplia experiencia en estas áreas.</p>
+
+                    <h3>Nuestros Servicios</h3>
+                    <p>Ofrecemos una variedad de servicios para proteger y defender tus derechos laborales y de seguridad social:</p>
+                </div>
+
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3><i class="fas fa-briefcase"></i> Asesoría en Derecho Laboral</h3>
+                        <ul class="service-list">
+                            <li>Orientación sobre contratos de trabajo.</li>
+                            <li>Asesoramiento en casos de despido injustificado.</li>
+                            <li>Información sobre liquidación de prestaciones sociales.</li>
+                            <li>Asistencia en procesos de negociación y resolución de conflictos laborales.</li>
+                            <li>Acoso Laboral</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3><i class="fas fa-user-tie"></i> Reclamaciones Laborales</h3>
+                        <ul class="service-list">
+                            <li>Reclamación de salarios y prestaciones sociales no pagadas.</li>
+                            <li>Demandas por despido sin justa causa.</li>
+                            <li>Reconocimiento y pago de horas extras.</li>
+                            <li>Reclamación de auxilio de cesantías y pensiones.</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3><i class="fas fa-shield-alt"></i> Seguridad Social</h3>
+                        <ul class="service-list">
+                            <li>Asesoría en afiliación al sistema de seguridad social.</li>
+                            <li>Reclamación de prestaciones económicas y asistenciales.</li>
+                            <li>Problemas con EPS y pensiones.</li>
+                            <li>Procedimientos ante la UGPP.</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3><i class="fas fa-users"></i> Derechos Colectivos</h3>
+                        <ul class="service-list">
+                            <li>Asesoría en negociación colectiva.</li>
+                            <li>Protección a sindicalistas.</li>
+                            <li>Convenciones colectivas de trabajo.</li>
+                            <li>Conflictos colectivos de trabajo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Imagen de derecho laboral">
+                </div>
+            </div>
+        </div>
+
+        <div id="contacto" class="contact-info">
+            <h2>Información de Contacto</h2>
+
+            <div class="service-grid">
+                <div>
+                    <h3><i class="fas fa-clock"></i> Horario de atención:</h3>
+                    <p>Lunes a viernes de 8:00 am a 12 pm y de 2:00 pm a 6:00 pm</p>
+
+                    <h3><i class="fas fa-phone"></i> Teléfono:</h3>
+                    <p>(601) 123 4567</p>
+                </div>
+
+                <div>
+                    <h3><i class="fas fa-envelope"></i> Correo electrónico:</h3>
+                    <p>consultoriojuridico@areandina.edu.co</p>
+
+                    <h3><i class="fas fa-laptop"></i> Consultorio virtual:</h3>
+                    <p><a href="https://areandinabogota.gestionjuridica.com/au/public/cjv">https://areandinabogota.gestionjuridica.com/au/public/cjv</a></p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-map-marker-alt"></i> Dirección:</h3>
+            <p>Avenida Caracas No. 69-44, Bogotá</p>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.785693060365!2d-74.0725117240166!3d4.632625942374371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a3b0e0e0e0f%3A0x1b8c0b0b0b0b0b0b!2sFundaci%C3%B3n%20Universitaria%20del%20%C3%81rea%20Andina!5e0!3m2!1ses!2sco!4v1620000000000!5m2!1ses!2sco" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="btn-container">
+                <a href="https://maps.app.goo.gl/iNid8vJcj1tzx6b16" class="btn" target="_blank">
+                    <i class="fas fa-map-marked-alt"></i> Ver en Google Maps
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/consultoriojuridico.areandinab?igsh=NmkwdXpreHAxMGJ0" target="_blank" aria-label="Instagram del Consultorio Jurídico">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <p>Consultorio Jurídico "Carlos Enrique Marín Vélez" - Fundación Universitaria del Área Andina</p>
+        <p>Servicio social gratuito - Todos los derechos reservados © 2025</p>
+    </footer>
+
+    <a href="#contacto" class="floating-btn">
+        <i class="fas fa-map-marker-alt"></i>
+    </a>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Ocultar todos los contenidos de pestañas
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // Desactivar todos los botones de pestañas
+            var tabs = document.getElementsByClassName("tab");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+
+            // Mostrar la pestaña actual y activar el botón
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+
+            // Desplazamiento suave a la sección (opcional, puede quitarse si no se desea)
+            // document.getElementById(tabName).scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+
+        // Asegurar que la pestaña penal esté activa al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+             // No es necesario hacer nada aquí ya que el HTML ya establece 'penal' como activo.
+        });
+    </script>
+</body>
+</html>
+```
